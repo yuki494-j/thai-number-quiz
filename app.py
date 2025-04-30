@@ -51,4 +51,4 @@ if st.button("答えを表示"):
 
 if st.button("次の問題へ"):
     st.session_state.current_number = random.randint(0, max_number)
-    st.experimental_rerun()
+    st.rerun()  # ← ここが修正された箇所！
