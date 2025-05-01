@@ -4,16 +4,16 @@ import os
 from gtts import gTTS
 from convert import convert_to_thai_text, convert_to_katakana
 
-# アプリタイトル
 st.title("タイ語 数字クイズ")
 
-# 難易度選択
+
 level = st.radio("レベルを選んでください：", [
     "初級 (0-100)",
     "中級 (0-1000)",
     "上級 (0-10000)",
     "パーフェクト (0-99999)"
 ])
+
 
 # 範囲設定
 if level == "初級 (0-100)":
@@ -36,7 +36,7 @@ katakana = convert_to_katakana(thai_text)
 # 表示
 st.subheader(f"数字：{number}")
 
-if st.button("答えを表示"):
+if st.button("答え"):
     st.markdown(f"**タイ語：** {thai_text}")
     st.markdown(f"**カタカナ：** {katakana}")
 
@@ -49,6 +49,6 @@ if st.button("答えを表示"):
 
     st.audio(audio_path, format="audio/mp3")
 
-if st.button("次の問題へ"):
+if st.button("NEXT"):
     st.session_state.current_number = random.randint(0, max_number)
     st.rerun()  
